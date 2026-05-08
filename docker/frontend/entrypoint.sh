@@ -105,5 +105,9 @@ export __STRATUM_ENABLED__
 folder=$(find /var/www/mempool -name "config.js" | xargs dirname)
 echo ${folder}
 envsubst < ${folder}/config.template.js > ${folder}/config.js
+find /var/www/mempool -name "index.html" -exec sed -i \
+  -e "s|__MEMPOOL_WEBSITE_URL__|${__MEMPOOL_WEBSITE_URL__}|g" \
+  -e "s|__NGINX_HOSTNAME__|${__NGINX_HOSTNAME__}|g" \
+  {} +
 
 exec "$@"
