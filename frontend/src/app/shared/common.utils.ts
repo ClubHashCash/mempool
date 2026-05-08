@@ -196,16 +196,9 @@ export function renderSats(value: number, network: string, mode: 'sats' | 'btc' 
     case 'liquidtestnet':
       prefix = 'tL';
       break;
-    case 'testnet':
-    case 'testnet4':
-      prefix = 't';
-      break;
-    case 'signet':
-      prefix = 's';
-      break;
   }
   if (mode === 'btc' || (mode === 'auto' && value >= 1000000)) {
-    return `${amountShortenerPipe.transform(value / 100000000, 2)} ${prefix}BTC`;
+    return `${amountShortenerPipe.transform(value / 100000000, 2)} ${prefix}HCASH`;
   } else {
     if (prefix.length) {
       prefix += '-';

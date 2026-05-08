@@ -165,7 +165,7 @@ export class TreasuriesPieComponent implements OnChanges {
           borderColor: '#000',
           formatter: () => {
             return `<b style="color: white">${entry.label} (${entry.share.toFixed(2)}%)</b><br>
-            ${formatNumber(entry.balance / 100_000_000, this.locale, '1.3-3')} BTC<br>`;
+            ${formatNumber(entry.balance / 100_000_000, this.locale, '1.3-3')} HCASH<br>`;
           }
         },
         data: entry.treasury,
@@ -197,7 +197,7 @@ export class TreasuriesPieComponent implements OnChanges {
           borderColor: '#000',
           formatter: () => {
             return `<b style="color: white">${otherEntry.label} (${otherEntry.share.toFixed(2)}%)</b><br>
-            ${formatNumber(otherEntry.balance / 100_000_000, this.locale, '1.3-3')} BTC<br>`;
+            ${formatNumber(otherEntry.balance / 100_000_000, this.locale, '1.3-3')} HCASH<br>`;
           }
         },
       } as PieSeriesOption);
@@ -285,4 +285,3 @@ export class TreasuriesPieComponent implements OnChanges {
     return (e.offsetWidth < e.scrollWidth);
   }
 }
-

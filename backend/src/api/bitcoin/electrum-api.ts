@@ -44,7 +44,7 @@ class BitcoindElectrsApi extends BitcoinApi implements AbstractBitcoinApi {
   async $getAddress(address: string): Promise<IEsploraApi.Address> {
     const addressInfo = await this.bitcoindClient.validateAddress(address);
     if (!addressInfo || !addressInfo.isvalid) {
-      throw new Error('Invalid Bitcoin address');
+      throw new Error('Invalid HashCash address');
     }
 
     try {
@@ -80,7 +80,7 @@ class BitcoindElectrsApi extends BitcoinApi implements AbstractBitcoinApi {
   async $getAddressTransactions(address: string, lastSeenTxId: string): Promise<IEsploraApi.Transaction[]> {
     const addressInfo = await this.bitcoindClient.validateAddress(address);
     if (!addressInfo || !addressInfo.isvalid) {
-      throw new Error('Invalid Bitcoin address');
+      throw new Error('Invalid HashCash address');
     }
 
     try {
@@ -150,7 +150,7 @@ class BitcoindElectrsApi extends BitcoinApi implements AbstractBitcoinApi {
   async $getAddressUtxos(address: string): Promise<IEsploraApi.UTXO[]> {
     const addressInfo = await this.bitcoindClient.validateAddress(address);
     if (!addressInfo || !addressInfo.isvalid) {
-      throw new Error('Invalid Bitcoin address');
+      throw new Error('Invalid HashCash address');
     }
     const scripthash = this.encodeScriptHash(addressInfo.scriptPubKey);
     return this.$getScriptHashUtxos(scripthash);
