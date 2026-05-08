@@ -44,6 +44,7 @@ $link-color:                $info;
 $link-decoration:           none !default;
 $link-hover-color:          color.adjust($link-color, $lightness: -15%) !default;
 $link-hover-decoration:     underline !default;
+$btn-link-focus-shadow-rgb: 0, 188, 217;
 
 $dropdown-bg: $bg;
 $dropdown-link-color: $fg;
@@ -77,6 +78,7 @@ $dropdown-link-active-bg: $active-bg;
   $link-color: $link-color,
   $link-decoration: $link-decoration,
   $link-hover-color: $link-hover-color,
+  $btn-link-focus-shadow-rgb: $btn-link-focus-shadow-rgb,
   $link-hover-decoration: $link-hover-decoration,
   $dropdown-bg: $dropdown-bg,
   $dropdown-link-color: $dropdown-link-color,
