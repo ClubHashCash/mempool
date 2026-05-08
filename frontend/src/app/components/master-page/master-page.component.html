@@ -65,7 +65,7 @@
       <app-svg-images class="d-flex justify-content-center align-items-center current-network-svg" [name]="network.val === '' ? 'bitcoin' : network.val" width="20" height="20" viewBox="0 0 65 65"></app-svg-images>
     </button>
     <div ngbDropdownMenu [ngClass]="{'dropdown-menu-end' : isMobile}">
-      <a ngbDropdownItem *ngIf="env.MAINNET_ENABLED" class="mainnet" [routerLink]="networkPaths['mainnet'] || '/'"><app-svg-images name="bitcoin" width="22" height="22" viewBox="0 0 65 65" style="width: 25px; height: 25px;" class="mainnet me-1"></app-svg-images> Mainnet</a>
+      <a ngbDropdownItem *ngIf="env.MAINNET_ENABLED" class="mainnet" [routerLink]="['/']"><app-svg-images name="bitcoin" width="22" height="22" viewBox="0 0 65 65" style="width: 25px; height: 25px;" class="mainnet me-1"></app-svg-images> Testnet Explorer</a>
       <a ngbDropdownItem *ngIf="env.SIGNET_ENABLED" class="signet" [class.active]="network.val === 'signet'" [routerLink]="networkPaths['signet'] || '/signet'"><app-svg-images name="signet" width="22" height="22" viewBox="0 0 65 65" style="width: 25px; height: 25px;" class="mainnet me-1"></app-svg-images> Signet</a>
       <a ngbDropdownItem *ngIf="env.TESTNET_ENABLED" class="testnet" [class.active]="network.val === 'testnet'" [routerLink]="networkPaths['testnet'] || '/testnet'"><app-svg-images name="testnet" width="22" height="22" viewBox="0 0 65 65" style="width: 25px; height: 25px;" class="mainnet me-1"></app-svg-images> Testnet3</a>
       <a ngbDropdownItem *ngIf="env.TESTNET4_ENABLED" class="testnet4" [class.active]="network.val === 'testnet4'" [routerLink]="networkPaths['testnet4'] || '/testnet4'"><app-svg-images name="testnet4" width="22" height="22" viewBox="0 0 65 65" style="width: 25px; height: 25px;" class="mainnet me-1"></app-svg-images> Testnet4</a>
@@ -81,11 +81,6 @@
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="btn-home">
         <a class="nav-link" [routerLink]="['/' | relativeUrl]" (click)="collapse()">
           <div class="svg-wrapper"><app-svg-images name="nav-tachometer" width="21.59" height="100%"></app-svg-images></div>
-        </a>
-      </li>
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="btn-home" *ngIf="network.val === '' && stateService.env.ACCELERATOR">
-        <a class="nav-link" [routerLink]="['/acceleration' | relativeUrl]" (click)="collapse()">
-          <div class="svg-wrapper"><app-svg-images name="nav-rocket" width="21.59" height="100%"></app-svg-images></div>
         </a>
       </li>
       <li class="nav-item mining" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="btn-pools" *ngIf="stateService.env.MINING_DASHBOARD">
@@ -121,11 +116,6 @@
       <li class="nav-item" routerLinkActive="active" id="btn-enterprise" *ngIf="officialMempoolSpaceBuild">
         <a class="nav-link" [routerLink]="['/enterprise']" [queryParams]="{network: network.val.length ? network.val : null}" (click)="collapse()">
           <div class="svg-wrapper"><app-svg-images name="nav-enterprise" width="21.59" height="100%"></app-svg-images></div>
-        </a>
-      </li>
-      <li class="nav-item" routerLinkActive="active" id="btn-about">
-        <a class="nav-link" [routerLink]="['/about']" (click)="collapse()">
-          <div class="svg-wrapper"><app-svg-images name="nav-info-circle" width="21.59" height="100%"></app-svg-images></div>
         </a>
       </li>
     </ul>

@@ -32,10 +32,6 @@ const routes: Routes = [
         component: PushTransactionComponent,
       },
       {
-        path: 'about',
-        loadChildren: () => import('@components/about/about.module').then(m => m.AboutModule),
-      },
-      {
         path: 'blocks/:page',
         component: BlocksList,
       },

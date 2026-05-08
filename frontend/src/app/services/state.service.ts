@@ -473,7 +473,7 @@ export class StateService {
   }
   get networkDisplayName(): string {
     const labels: Record<string, string> = {
-      '': 'Mainnet',
+      '': 'Testnet Explorer',
       'signet': 'Signet',
       'testnet': 'Testnet3',
       'testnet4': 'Testnet4',
