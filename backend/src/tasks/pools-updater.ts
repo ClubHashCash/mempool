@@ -56,8 +56,10 @@ class PoolsUpdater {
         return;
       }
 
+      const forcePoolsReindex = Number.isInteger(config.MEMPOOL.POOLS_REINDEX_START_HEIGHT)
+        && config.MEMPOOL.POOLS_REINDEX_START_HEIGHT >= 0;
       logger.debug(`pools-v2.json sha | Current: ${this.currentSha} | Github: ${githubSha}`, this.tag);
-      if (this.currentSha !== null && this.currentSha === githubSha) {
+      if (this.currentSha !== null && this.currentSha === githubSha && !forcePoolsReindex) {
         return;
       }
 
@@ -74,6 +76,8 @@ class PoolsUpdater {
       const network = config.SOCKS5PROXY.ENABLED ? 'tor' : 'clearnet';
       if (this.currentSha === null) {
         logger.info(`Downloading pools-v2.json for the first time from ${this.poolsUrl} over ${network}`, this.tag);
+      } else if (forcePoolsReindex) {
+        logger.notice(`Mining pools data is unchanged, running configured pool reindex from height ${config.MEMPOOL.POOLS_REINDEX_START_HEIGHT}`, this.tag);
       } else {
         logger.warn(`pools-v2.json is outdated, fetching latest from ${this.poolsUrl} over ${network}`, this.tag);
       }

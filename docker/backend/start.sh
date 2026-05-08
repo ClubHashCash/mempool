@@ -30,6 +30,7 @@ __MEMPOOL_AUTOMATIC_POOLS_UPDATE__=${MEMPOOL_AUTOMATIC_POOLS_UPDATE:=true}
 __MEMPOOL_POOLS_JSON_URL__=${MEMPOOL_POOLS_JSON_URL:=https://raw.githubusercontent.com/mempool/mining-pools/master/pools-v2.json}
 __MEMPOOL_POOLS_JSON_TREE_URL__=${MEMPOOL_POOLS_JSON_TREE_URL:=https://api.github.com/repos/mempool/mining-pools/git/trees/master}
 __MEMPOOL_POOLS_UPDATE_DELAY__=${MEMPOOL_POOLS_UPDATE_DELAY:=604800}
+__MEMPOOL_POOLS_REINDEX_START_HEIGHT__=${MEMPOOL_POOLS_REINDEX_START_HEIGHT:=-1}
 __MEMPOOL_AUDIT__=${MEMPOOL_AUDIT:=false}
 __MEMPOOL_RUST_GBT__=${MEMPOOL_RUST_GBT:=true}
 __MEMPOOL_LIMIT_GBT__=${MEMPOOL_LIMIT_GBT:=false}
@@ -196,6 +197,7 @@ sed -i "s!__MEMPOOL_AUTOMATIC_POOLS_UPDATE__!${__MEMPOOL_AUTOMATIC_POOLS_UPDATE_
 sed -i "s!__MEMPOOL_POOLS_JSON_URL__!${__MEMPOOL_POOLS_JSON_URL__}!g" mempool-config.json
 sed -i "s!__MEMPOOL_POOLS_JSON_TREE_URL__!${__MEMPOOL_POOLS_JSON_TREE_URL__}!g" mempool-config.json
 sed -i "s!__MEMPOOL_POOLS_UPDATE_DELAY__!${__MEMPOOL_POOLS_UPDATE_DELAY__}!g" mempool-config.json
+sed -i "s!__MEMPOOL_POOLS_REINDEX_START_HEIGHT__!${__MEMPOOL_POOLS_REINDEX_START_HEIGHT__}!g" mempool-config.json
 sed -i "s!__MEMPOOL_AUDIT__!${__MEMPOOL_AUDIT__}!g" mempool-config.json
 sed -i "s!__MEMPOOL_RUST_GBT__!${__MEMPOOL_RUST_GBT__}!g" mempool-config.json
 sed -i "s!__MEMPOOL_LIMIT_GBT__!${__MEMPOOL_LIMIT_GBT__}!g" mempool-config.json
