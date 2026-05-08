@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { Env, StateService } from '@app/services/state.service';
+import { StateService } from '@app/services/state.service';
 import { SeoService } from '@app/services/seo.service';
 import { OpenGraphService } from '@app/services/opengraph.service';
 import { Subscription } from 'rxjs';
@@ -25,7 +25,7 @@ export class TermsOfServiceComponent {
 
   ngOnInit(): void {
     this.seoService.setTitle('Terms of Service');
-    this.seoService.setDescription('Out of respect for the HashCash community, the mempool.space website is HashCash Only and does not display any advertising.');
+    this.seoService.setDescription('Terms of Service for the HashCash mempool explorer.');
     this.ogService.setManualOgImage('tos.jpg');
 
     this.themeStateSubscription = this.themeService.themeState$.subscribe((state) => {
